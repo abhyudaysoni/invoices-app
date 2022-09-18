@@ -2,6 +2,7 @@ import React from "react";
 import PreviewCard from "../PreviewCard/PreviewCard";
 import styled from "styled-components";
 import { sampleData } from "../../../sample-data";
+import { NavLink } from "react-router-dom";
 
 const Container = styled.section`
   display: flex;
@@ -23,10 +24,10 @@ const HomepageBody = (props) => {
     displayData = sampleData.filter((user) => user.status === "pending");
   }
 
-  displayData = displayData.map((users, index) => {
+  displayData = displayData.map((user, index) => {
     let totalAmount = 0;
     let tempTotalAmount;
-    let totalItemsArray = users.items.map((item) => {
+    let totalItemsArray = user.items.map((item) => {
       let sum = 0;
       sum = sum + item.quantity * item.itemPrice;
       return sum;
@@ -37,18 +38,20 @@ const HomepageBody = (props) => {
       return sum;
     });
     totalAmount = tempTotalAmount[tempTotalAmount.length - 1];
-    users.amount = totalAmount.toFixed(2);
+    user.amount = totalAmount.toFixed(2);
     return (
-      <PreviewCard
-        key={users.id}
-        className="homepage-preview"
-        id={users.id}
-        name={users.name}
-        dueDate={users.dueDate}
-        amount={users.amount}
-        status={users.status}
-        onClick={props.onViewInvoice}
-      ></PreviewCard>
+      <NavLink to={`/user/${user.id}`} key={user.id}>
+        <PreviewCard
+          key={user.id}
+          className="homepage-preview"
+          id={user.id}
+          name={user.name}
+          dueDate={user.dueDate}
+          amount={user.amount}
+          status={user.status}
+          onClick={props.onViewInvoice}
+        ></PreviewCard>
+      </NavLink>
     );
   });
 
