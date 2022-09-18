@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "./styles";
-import Button from "../../../../UI/Button/Button";
-import deleteItem from "../../../../../assets/icons/icon-delete.svg";
+import Button from "../../UI/Button/Button";
+import deleteItem from "../../../assets/icons/icon-delete.svg";
 
 const ItemsInput = (props) => {
   console.log("added " + props.itemKey);

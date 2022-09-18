@@ -9,8 +9,8 @@ const Container = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 50%;
   background: black;
-  opacity: 70%;
   z-index: 5;
 `;
 

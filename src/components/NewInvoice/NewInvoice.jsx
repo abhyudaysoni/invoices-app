@@ -1,11 +1,11 @@
 import React from "react";
-import Button from "../../../UI/Button/Button";
+import Button from "../UI/Button/Button";
 import BillerAddressInput from "./AddressInput/AddressInput";
 import ClientInfoInput from "./ClientInfoInput/ClientInfoInput";
 import InvoiceDateInput from "./InvoiceDateInput/InvoiceDateInput";
 import ItemsInput from "./ItemsInput/ItemsInput";
 import { Container } from "./styles";
-import closeNewInvoiceBtn from "../../../../assets/icons/close-line.svg";
+import closeNewInvoiceBtn from "../../assets/icons/close-line.svg";
 import { useState } from "react";
 
 const NewInvoice = (props) => {

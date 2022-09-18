@@ -9,12 +9,12 @@ export const Container = styled.section`
   width: 60%;
   left: 100px;
   bottom: 0;
-  z-index: 10;
   border-radius: 0 20px 20px 0;
   animation-name: new-invoice-open;
   animation-duration: 0.2s;
   padding: 2rem;
   overflow: scroll;
+  z-index: 10;
   & .new-invoice-header {
     display: flex;
     align-items: center;

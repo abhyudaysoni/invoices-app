@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 import ViewInvoice from "./components/ViewInvoice/ViewInvoice";
+import NewInvoice from "./components/NewInvoice/NewInvoice";
 
 const AppRoutes = () => {
   return (
