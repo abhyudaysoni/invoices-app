@@ -1,8 +1,9 @@
-# Invoices Manager
+# REST Countries API
 
-## This app performs basic CRUD operations with the server
+This is a solution to the [Invoices App - A frontend mentor challenge](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl).
 
-## To open this Project
+
+## Overview
 
 ## Steps to run the app on a browser: 
 
@@ -28,3 +29,35 @@
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+
+
+### What I learned
+
+1. In this challenge I worked with data fetching from an API(Application Programming Interface)
+2. Basic React Routing
+3. Styled Components
+4. Conditional rendering
+5. React Hooks
+6. Interacting with a server
+
+### Links
+
+- Solution URL: [https://github.com/abhyudaysoni/invoices-app](https://github.com/abhyudaysoni/invoices-app)
+- Live Site URL: [https://invoices-app-omega.vercel.app](https://invoices-app-omega.vercel.app)
+
+
+## Author
+
+- Website - [Abhyuday Soni](https://www.your-site.com)
+- Frontend Mentor - [@abhyudaysoni](https://www.frontendmentor.io/profile/abhyudaysoni)
