@@ -19,10 +19,10 @@ const HomepageHeader = (props) => {
       <div className="right">
         <div id="btn-filter" onClick={props.filterVisibilityHandler}>
           <div className="btn">
-            <MediaQuery maxWidth={400}>
+            <MediaQuery maxWidth={425}>
               <p>Status</p>
             </MediaQuery>
-            <MediaQuery minWidth={400}>
+            <MediaQuery minWidth={425}>
               <p>Filter by status</p>
             </MediaQuery>
             <img id="arrow-down" src={arrowDown} alt="arrowDown" />

@@ -7,11 +7,11 @@ const Dates = (props) => {
     <div className="dates">
       <div>
         <p>Invoice Date:</p>
-        <h3>{iDate}</h3>
+        <h3>{`${iDate.day}-${iDate.month}-${iDate.year}`}</h3>
       </div>
       <div>
         <p>Payment Date:</p>
-        <h3>{pDate}</h3>
+        <h3>{`${pDate.day}-${pDate.month}-${pDate.year}`}</h3>
       </div>
     </div>
   );

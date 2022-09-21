@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.1fr;
+  grid-gap: 1rem;
   background-color: white;
-  padding: 0 2rem;
+  padding: 2rem;
   align-items: center;
   margin: 1rem 0;
   border-radius: 20px;
-  height: 100px;
+  height: fit-content;
   :hover {
     box-shadow: 0 0 2px 1px #7c5df9;
     transition: 0.2s;
@@ -41,6 +42,7 @@ export const Container = styled.div`
 
   @media (max-width: 700px) {
     grid-template-columns: repeat(4, 1fr);
+    padding: 1rem;
   }
   @media (max-width: 600px) {
     grid-template-columns: 1fr 1fr;

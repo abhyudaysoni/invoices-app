@@ -46,7 +46,7 @@ const HomepageBody = (props) => {
           className="homepage-preview"
           id={user.id}
           name={user.name}
-          dueDate={user.dueDate}
+          paymentDate={user.paymentDate}
           amount={user.amount}
           status={user.status}
           onClick={props.onViewInvoice}
