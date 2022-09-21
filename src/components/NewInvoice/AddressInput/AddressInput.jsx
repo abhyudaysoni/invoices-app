@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Container } from "./styles";
 
 const AddressInput = (props) => {
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
-  const [area, setArea] = useState("");
-  const [country, setCountry] = useState("");
-  const [zip, setZip] = useState("");
+  const [street, setStreet] = useState(props?.address?.street || "");
+  const [city, setCity] = useState(props?.address?.city || "");
+  const [area, setArea] = useState(props?.address?.area || "");
+  const [country, setCountry] = useState(props?.address?.country || "");
+  const [zip, setZip] = useState(props?.address?.zip || "");
   const streetHandler = (e) => {
     setStreet(e.target.value);
   };

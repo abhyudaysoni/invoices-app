@@ -39,7 +39,6 @@ export const Container = styled.section`
       }
       .btn {
         display: flex;
-        /* margin: 1rem 0; */
       }
       .filter-options {
         display: flex;

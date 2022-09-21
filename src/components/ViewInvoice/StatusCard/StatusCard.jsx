@@ -3,6 +3,7 @@ import Button from "../../UI/Button/Button";
 import IconDelete from "../../../assets/icons/icon-delete.svg";
 import IconEdit from "../../../assets/icons/icon-edit.svg";
 import { Container } from "./styles";
+import { Link } from "react-router-dom";
 
 const StatusCard = (props) => {
   return (
@@ -18,12 +19,16 @@ const StatusCard = (props) => {
         </div>
       </div>
       <div className="edit-options">
-        <Button>
-          <img src={IconEdit} alt="edit" />
-        </Button>
-        <Button>
-          <img src={IconDelete} alt="delete" />
-        </Button>
+        <Link to={`/user/${props.userID}/edit`}>
+          <Button onClick={props.onEdit}>
+            <img src={IconEdit} alt="edit" />
+          </Button>
+        </Link>
+        <Link>
+          <Button>
+            <img src={IconDelete} alt="delete" />
+          </Button>
+        </Link>
       </div>
     </Container>
   );

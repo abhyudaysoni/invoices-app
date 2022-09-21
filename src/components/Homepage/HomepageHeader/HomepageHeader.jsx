@@ -5,7 +5,7 @@ import plus from "../../../assets/icons/icon-plus-circle.svg";
 import arrowDown from "../../../assets/icons/icon-arrow-down.svg";
 import MediaQuery from "react-responsive";
 import Card from "../../UI/Card/Card";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HomepageHeader = (props) => {
   return (

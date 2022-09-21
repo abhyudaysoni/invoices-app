@@ -21,7 +21,6 @@ export const sampleData = [
     },
     email: "someone@example.com",
     invoiceDate: "15th Aug 2021",
-    paymentDate: "26th Jan 2022",
     items: [
       {
         itemName: "Bedsheets",
@@ -59,7 +58,7 @@ export const sampleData = [
     },
     email: "someone@example.com",
     invoiceDate: "15th Aug 2021",
-    paymentDate: "26th Jan 2022",
+
     items: [
       {
         itemName: "Bedsheets",
@@ -97,7 +96,6 @@ export const sampleData = [
     },
     email: "someone@example.com",
     invoiceDate: "15th Aug 2021",
-    paymentDate: "26th Jan 2022",
     items: [
       {
         itemName: "Bedsheets",
@@ -191,7 +189,7 @@ export const sampleData = [
     },
     email: "someone@example.com",
     invoiceDate: "15th Aug 2021",
-    paymentDate: "26th Jan 2022",
+
     items: [
       {
         itemName: "Bedsheets",
@@ -223,7 +221,7 @@ export const sampleData = [
     },
     email: "someone@example.com",
     invoiceDate: "15th Aug 2021",
-    paymentDate: "26th Jan 2022",
+
     items: [
       {
         itemName: "Tables",
@@ -267,7 +265,7 @@ export const sampleData = [
     },
     email: "someone@example.com",
     invoiceDate: "15th Aug 2021",
-    paymentDate: "26th Jan 2022",
+
     items: [
       {
         itemName: "Tables",

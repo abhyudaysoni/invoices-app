@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "./styles";
 import Button from "../../UI/Button/Button";
 import deleteItem from "../../../assets/icons/icon-delete.svg";
 
 const ItemsInput = (props) => {
-  console.log("added " + props.itemKey);
+  const [itemName, setItemName] = useState(props.name || "");
+  const [quantity, setQuantity] = useState(props.quantity || "");
+  const [itemPrice, setItemPrice] = useState(props.itemPrice || "");
+  const [totalItemPrice, setTotalItemPrice] = useState(
+    props.totalItemPrice || ""
+  );
+  const itemNameHandler = (e) => {
+    setItemName(e.target.value);
+  };
+  const quantityHandler = (e) => {
+    setQuantity(e.target.value);
+  };
+  const itemPriceHandler = (e) => {
+    setItemPrice(e.target.value);
+  };
+  const totalItemPriceHandler = (e) => {
+    setTotalItemPrice(e.target.value);
+  };
   return (
     <Container>
       <div className="label-input-name">
@@ -12,7 +29,8 @@ const ItemsInput = (props) => {
           id="item-name"
           type="text"
           placeholder="Item Name"
-          value={props.itemName || ""}
+          value={itemName}
+          onChange={itemNameHandler}
         />
       </div>
       <div className="qty-price-total">
@@ -22,7 +40,8 @@ const ItemsInput = (props) => {
             type="number"
             min={1}
             placeholder="QTY"
-            value={props.quantity || ""}
+            value={quantity}
+            onChange={quantityHandler}
           />
         </div>
         <div>x</div>
@@ -31,7 +50,8 @@ const ItemsInput = (props) => {
             id="price"
             type="text"
             placeholder="Price"
-            value={props.itemPrice || ""}
+            value={itemPrice}
+            onChange={itemPriceHandler}
           />
         </div>
         <div className="label-input">
@@ -40,7 +60,8 @@ const ItemsInput = (props) => {
             type="text"
             placeholder="Total Price"
             disabled
-            value={props.totalItemPrice || ""}
+            value={totalItemPrice}
+            onChange={totalItemPriceHandler}
           />
         </div>
         <Button id="delete-item">

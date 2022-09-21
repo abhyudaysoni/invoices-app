@@ -8,7 +8,6 @@ const Card = (props) => {
     <Container
       id={props.id}
       className={props.className}
-      // onClick={props.onClick.bind(null, props.id)}
       status={props.status}
     >
       <h3 className="invoice-id">#{props.id}</h3>

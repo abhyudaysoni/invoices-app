@@ -10,9 +10,13 @@ export const Container = styled.div`
   & .qty-price-total {
     display: flex;
     align-items: center;
+    #quantity {
+      max-width: 70px;
+    }
     #price {
       padding: 3px;
       text-align: right;
+      max-width: 100px;
     }
     #total-price {
       background: none;
@@ -20,6 +24,8 @@ export const Container = styled.div`
       padding: 3px;
       font-size: 1rem;
       text-align: right;
+      font-weight: 700;
+      max-width: 100px;
     }
   }
   & .label-input {
