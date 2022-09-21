@@ -1,4 +1,4 @@
-# REST Countries API
+# Invoices Manager
 
 This is a solution to the [Invoices App - A frontend mentor challenge](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl).
 
