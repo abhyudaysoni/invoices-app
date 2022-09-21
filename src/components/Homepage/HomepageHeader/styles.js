@@ -54,6 +54,9 @@ export const Container = styled.section`
         overflow: hidden;
         box-shadow: 0px 0px 5px 1px #e6e6e6;
         z-index: 10;
+        a {
+          height: 100%;
+        }
         #paid {
           background: #ebfff8;
         }
@@ -73,6 +76,7 @@ export const Container = styled.section`
           text-align: left;
           padding: 1rem;
           font-weight: 600;
+          height: 100%;
         }
         button:hover {
           background-color: white;
@@ -114,7 +118,7 @@ export const Container = styled.section`
       font-weight: 800;
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 425px) {
     & .right #btn-filter {
       width: fit-content;
       .filter-options {

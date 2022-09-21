@@ -45,7 +45,14 @@ export const Container = styled.header`
     height: 75px;
     width: 100%;
     border-radius: 0;
-
+    a {
+      height: 100%;
+      width: auto;
+    }
+    & .logo {
+      height: 100%;
+      width: auto;
+    }
     & .account-options {
       display: flex;
     }

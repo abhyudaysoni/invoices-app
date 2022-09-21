@@ -12,11 +12,13 @@ export const Container = styled.div`
     align-items: center;
     #quantity {
       max-width: 70px;
+      min-width: 70px;
     }
     #price {
       padding: 3px;
       text-align: right;
-      max-width: 100px;
+      max-width: 150px;
+      min-width: 70px;
     }
     #total-price {
       background: none;
@@ -25,7 +27,8 @@ export const Container = styled.div`
       font-size: 1rem;
       text-align: right;
       font-weight: 700;
-      max-width: 100px;
+      max-width: 150px;
+      min-width: 50px;
     }
   }
   & .label-input {
