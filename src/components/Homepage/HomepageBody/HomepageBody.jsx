@@ -40,7 +40,7 @@ const HomepageBody = (props) => {
     totalAmount = tempTotalAmount[tempTotalAmount.length - 1];
     user.amount = totalAmount.toFixed(2);
     return (
-      <NavLink to={`/user/${user.id}`} key={user.id}>
+      <NavLink to={`/invoices/user/${user.id}`} key={user.id}>
         <PreviewCard
           key={user.id}
           className="homepage-preview"

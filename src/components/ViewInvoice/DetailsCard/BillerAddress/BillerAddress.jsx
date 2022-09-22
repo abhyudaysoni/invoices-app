@@ -7,6 +7,7 @@ const BillerAddress = (props) => {
       <p>{bAddress.street || ""}</p>
       <p>{bAddress.city || ""}</p>
       <p>{bAddress.state || ""}</p>
+      <p>{bAddress.area || ""}</p>
       <p>{bAddress.country || ""}</p>
       <p>ZIP Code: {bAddress.zip || ""}</p>
     </div>

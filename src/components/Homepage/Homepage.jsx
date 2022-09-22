@@ -5,8 +5,10 @@ import HomepageHeader from "./HomepageHeader/HomepageHeader";
 import HomepageBody from "./HomepageBody/HomepageBody";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import NewInvoice from "../NewInvoice/NewInvoice";
+import { useNavigate } from "react-router-dom";
 
 export default function Homepage(props) {
+  const navigate = useNavigate();
   const [filterOptionVisibility, setFilterOptionVisibility] = useState(false);
   const filterVisibilityHandler = () => {
     setFilterOptionVisibility((prev) => !prev);
@@ -19,6 +21,7 @@ export default function Homepage(props) {
 
   const overlayHandler = () => {
     setNewInvoiceVisibility(false);
+    navigate(`/invoices`);
   };
 
   return (

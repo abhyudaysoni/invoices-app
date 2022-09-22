@@ -19,7 +19,7 @@ const StatusCard = (props) => {
         </div>
       </div>
       <div className="edit-options">
-        <Link to={`/user/${props.userID}/edit`}>
+        <Link to={`/invoices/user/${props.userID}/edit`}>
           <Button onClick={props.onEdit}>
             <img src={IconEdit} alt="edit" />
           </Button>

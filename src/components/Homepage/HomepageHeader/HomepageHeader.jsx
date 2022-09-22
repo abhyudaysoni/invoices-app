@@ -34,12 +34,12 @@ const HomepageHeader = (props) => {
                   None
                 </Button>
               </Link>
-              <Link to="/paid">
+              <Link to="/invoices/paid">
                 <Button value="paid" id="paid" onClick={props.filterHandler}>
                   Paid
                 </Button>
               </Link>
-              <Link to="/pending">
+              <Link to="/invoices/pending">
                 <Button
                   value="pending"
                   id="pending"
@@ -51,12 +51,14 @@ const HomepageHeader = (props) => {
             </Card>
           )}
         </div>
-        <Button id="btn-new-invoice" onClick={props.onNewInvoice}>
-          <img src={plus} alt="" />
-          <MediaQuery minWidth={700}>
-            <p className="new-invoice-text">New Invoice</p>
-          </MediaQuery>
-        </Button>
+        <Link to="/invoices/new">
+          <Button id="btn-new-invoice" onClick={props.onNewInvoice}>
+            <img src={plus} alt="" />
+            <MediaQuery minWidth={700}>
+              <p className="new-invoice-text">New Invoice</p>
+            </MediaQuery>
+          </Button>
+        </Link>
       </div>
     </Container>
   );

@@ -13,6 +13,7 @@ const ViewInvoice = (props) => {
   const params = useParams();
 
   const [editVisibility, setEditVisibility] = useState(false);
+  const user = sampleData.find((user) => user.id === params.userID);
   const navigate = useNavigate();
   const editVisibilityHandler = () => {
     setEditVisibility((prev) => !prev);
@@ -20,9 +21,8 @@ const ViewInvoice = (props) => {
 
   const overlayHandler = () => {
     setEditVisibility(false);
-    navigate(`/user/${params.userID}`);
+    navigate(`/invoices/user/${params.userID}`);
   };
-  const user = sampleData.find((user) => user.id === params.userID);
   return (
     <Container status={user.status}>
       <StatusCard

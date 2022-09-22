@@ -7,6 +7,7 @@ const ClientAddress = (props) => {
       <p>{cAddress.street || ""}</p>
       <p>{cAddress.city || ""}</p>
       <p>{cAddress.state || ""}</p>
+      <p>{cAddress.area || ""}</p>
       <p>{cAddress.country || ""}</p>
       <p>ZIP Code: {cAddress.zip || ""}</p>
     </div>

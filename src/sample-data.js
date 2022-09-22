@@ -7,14 +7,14 @@ export const sampleData = [
     clientAddress: {
       street: "4729 Marion Street",
       city: "South Burlington",
-      Area: "Vermont",
+      area: "Vermont",
       country: "Vermont",
       zip: "05403",
     },
     billerAddress: {
       street: "221B Baker's Street",
       city: "London",
-      Area: "England",
+      area: "England",
       country: "United Kingdom",
       zip: "SW1",
     },
