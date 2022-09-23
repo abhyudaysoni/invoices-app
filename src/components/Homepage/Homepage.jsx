@@ -6,6 +6,9 @@ import HomepageBody from "./HomepageBody/HomepageBody";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import NewInvoice from "../NewInvoice/NewInvoice";
 import { useNavigate } from "react-router-dom";
+import { url } from "../../requests/url";
+import Post from "../../requests/Post";
+import Button from "../UI/Button/Button";
 
 export default function Homepage(props) {
   const navigate = useNavigate();
@@ -23,7 +26,6 @@ export default function Homepage(props) {
     setNewInvoiceVisibility(false);
     navigate(`/invoices`);
   };
-
   return (
     <Container>
       <section className="default-homepage">
@@ -33,13 +35,15 @@ export default function Homepage(props) {
           onNewInvoice={newInvoiceVisibilityHandler}
         />
       </section>
-      <HomepageBody status={props.status} />
+      <HomepageBody status={props.status} invoices={props.invoices} />
       {newInvoiceVisibility &&
         ReactDOM.createPortal(
           <Backdrop onClick={overlayHandler}></Backdrop>,
           document.getElementById("backdrop-root")
         )}
-      {newInvoiceVisibility && <NewInvoice onCloseOverlay={overlayHandler} />}
+      {newInvoiceVisibility && (
+        <NewInvoice onCloseOverlay={overlayHandler} invoices={props.invoices} />
+      )}
     </Container>
   );
 }

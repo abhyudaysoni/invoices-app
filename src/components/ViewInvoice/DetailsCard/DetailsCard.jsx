@@ -9,7 +9,6 @@ const DetailsCard = (props) => {
   const user = props.filteredUser;
   const id = user.id;
   const amount = user.amount;
-  console.log(amount);
 
   return (
     <Container>

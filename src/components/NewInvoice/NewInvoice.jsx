@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { sampleData } from "../../sample-data";
 import { Container } from "./styles";
 import BillerAddressInput from "./AddressInput/AddressInput";
 import ClientAddressInput from "./AddressInput/AddressInput";
@@ -13,8 +12,10 @@ import closeNewInvoiceBtn from "../../assets/icons/close-line.svg";
 const NewInvoice = (props) => {
   const params = useParams();
   let currentUser;
-  if (params.userID) {
-    currentUser = sampleData.find((element) => element.id === params.userID);
+  if (params.userID && props.invoices) {
+    currentUser = props.invoices.find(
+      (element) => element.id === params.userID
+    );
   }
   const removeItemHandler = (key, e) => {};
   const newItemHandler = () => {};

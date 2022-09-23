@@ -1,7 +1,6 @@
 import StatusCard from "./StatusCard/StatusCard";
 import DetailsCard from "./DetailsCard/DetailsCard";
 import { useParams } from "react-router-dom";
-import { sampleData } from "../../sample-data";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Container } from "./styles";
@@ -13,7 +12,7 @@ const ViewInvoice = (props) => {
   const params = useParams();
 
   const [editVisibility, setEditVisibility] = useState(false);
-  const user = sampleData.find((user) => user.id === params.userID);
+  const user = props.invoices.find((user) => user.id === params.userID);
   const navigate = useNavigate();
   const editVisibilityHandler = () => {
     setEditVisibility((prev) => !prev);
@@ -37,7 +36,11 @@ const ViewInvoice = (props) => {
           document.getElementById("backdrop-root")
         )}
       {editVisibility && (
-        <NewInvoice onCloseOverlay={overlayHandler} userID={params.userID} />
+        <NewInvoice
+          onCloseOverlay={overlayHandler}
+          userID={params.userID}
+          invoices={props.invoices}
+        />
       )}
     </Container>
   );
