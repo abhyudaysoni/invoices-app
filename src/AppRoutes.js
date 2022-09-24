@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 import Loading from "./components/UI/Loading/Loading";
 import ViewInvoice from "./components/ViewInvoice/ViewInvoice";
+import NotFound from "./components/UI/NotFound";
 const AppRoutes = (props) => {
   return (
     <>
@@ -44,6 +45,7 @@ const AppRoutes = (props) => {
             element={<ViewInvoice invoices={props.invoices} />}
             exact
           />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       )}
     </>
