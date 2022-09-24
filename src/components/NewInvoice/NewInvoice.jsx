@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "./styles";
 import BillerAddressInput from "./AddressInput/AddressInput";
@@ -8,17 +8,33 @@ import InvoiceDateInput from "./InvoiceDateInput/InvoiceDateInput";
 import ItemsInput from "./ItemsInput/ItemsInput";
 import Button from "../UI/Button/Button";
 import closeNewInvoiceBtn from "../../assets/icons/close-line.svg";
+import { getItemsArray, getUser } from "./helper";
 
 const NewInvoice = (props) => {
   const params = useParams();
-  let currentUser;
-  if (params.userID && props.invoices) {
-    currentUser = props.invoices.find(
-      (element) => element.id === params.userID
-    );
+  let user;
+  if (params.userID) {
+    user = getUser(props, params);
   }
-  const removeItemHandler = (key, e) => {};
-  const newItemHandler = () => {};
+  const removeItemHandler = (itemKey, e) => {
+    setItems((prev) =>
+      prev.filter((element) => {
+        return element.props.itemKey !== itemKey;
+      })
+    );
+  };
+  const itemsArr = getItemsArray(props, user, removeItemHandler);
+  const [items, setItems] = useState(itemsArr);
+  const newItemHandler = () => {
+    setItems((prev) => [
+      ...prev,
+      <ItemsInput
+        key={items.length + Math.random()}
+        itemKey={items.length}
+        onDeleteItem={removeItemHandler}
+      />,
+    ]);
+  };
   return (
     <Container>
       <div className="new-invoice-header">
@@ -29,27 +45,15 @@ const NewInvoice = (props) => {
       </div>
       <form>
         <h2>Bill From</h2>
-        <BillerAddressInput address={currentUser?.billerAddress} />
+        <BillerAddressInput address={user?.billerAddress} />
         <h2>Bill To</h2>
-        <ClientInfoInput user={currentUser} />
+        <ClientInfoInput user={user} />
         <h2>Client Address</h2>
-        <ClientAddressInput address={currentUser?.clientAddress} />
+        <ClientAddressInput address={user?.clientAddress} />
         <h2>Dates</h2>
-        <InvoiceDateInput user={currentUser} />
+        <InvoiceDateInput user={user} />
         <h2 id="item-list-heading">Item List</h2>
-        {currentUser?.items &&
-          currentUser.items.map((element, index) => (
-            <ItemsInput
-              key={index + Math.random()}
-              itemKey={index}
-              name={element.itemName}
-              quantity={element.quantity}
-              itemPrice={element.itemPrice}
-              totalItemPrice={element.quantity * element.itemPrice}
-              onDeleteItem={removeItemHandler}
-              items={currentUser.items}
-            />
-          ))}
+        {items}
         <Button id="btn-add-new-item" onClick={newItemHandler}>
           <p> + Add New Item</p>
         </Button>
