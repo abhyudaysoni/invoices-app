@@ -1,4 +1,4 @@
-const Post = (url, invoice) => {
+export const post = (url, invoice) => {
   fetch(url, {
     method: "POST",
     body: JSON.stringify(invoice),
@@ -9,5 +9,3 @@ const Post = (url, invoice) => {
     .then((response) => response.json())
     .then((data) => console.log(data));
 };
-
-export default Post;

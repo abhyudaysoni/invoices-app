@@ -4,6 +4,9 @@ import { getFilteredData } from "./helper";
 
 const Container = styled.section`
   display: flex;
+  a {
+    margin-top: 2rem;
+  }
   flex-direction: column;
   & .homepage-preview {
     cursor: pointer;

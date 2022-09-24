@@ -1,7 +1,7 @@
 import "./App.css";
 import AppRoutes from "./AppRoutes";
-import { url } from "./requests/url";
-import useFetchGet from "./requests/useFetchGet";
+import { url } from "./constants/url";
+import useFetchGet from "./hooks/useFetchGet";
 
 function App() {
   const data = useFetchGet(url);

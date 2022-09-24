@@ -7,7 +7,6 @@ export const Container = styled.div`
   background-color: white;
   padding: 2rem;
   align-items: center;
-  margin: 1rem 0;
   border-radius: 20px;
   height: fit-content;
   :hover {
