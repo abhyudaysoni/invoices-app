@@ -1,2 +1,2 @@
 export const url =
-  "https://invoices-frontend-mentor-default-rtdb.asia-southeast1.firebasedatabase.app/invoices.json";
+  "https://invoices-7b7c8-default-rtdb.asia-southeast1.firebasedatabase.app/invoices.json";
