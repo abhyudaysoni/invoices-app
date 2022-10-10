@@ -12,6 +12,8 @@ import { getItemsArray, getUser } from "./helper";
 import clear from "../../assets/icons/clear.svg";
 import save from "../../assets/icons/save.svg";
 import { useNavigate } from "react-router-dom";
+import { post } from "../../api/api";
+import { url } from "../../constants/url";
 
 const NewInvoice = (props) => {
   const params = useParams();
@@ -78,6 +80,7 @@ const NewInvoice = (props) => {
 
   const saveFormHandler = () => {
     console.log(invoice);
+    post(url, invoice);
     navigate(`/`);
   };
   const discardFormHandler = () => {

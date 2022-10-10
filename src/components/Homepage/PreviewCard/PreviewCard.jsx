@@ -6,7 +6,7 @@ import MediaQuery from "react-responsive";
 const Card = (props) => {
   return (
     <Container id={props.id} className={props.className} status={props.status}>
-      <h3 className="invoice-id">#{props.id}</h3>
+      <h3 className="invoice-id">#...{props.id.slice(30, props.id.length)}</h3>
       <MediaQuery minWidth={700}>
         <p className="invoice-due-date">
           due{" "}
