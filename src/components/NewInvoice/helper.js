@@ -1,6 +1,11 @@
 import ItemsInput from "./ItemsInput/ItemsInput";
 
-export const getItemsArray = (props, user, removeItemHandler) => {
+export const getItemsArray = (
+  props,
+  user,
+  removeItemHandler,
+  saveItemHandler
+) => {
   let itemsArr = [];
   if (user) {
     itemsArr = user.items.map((element, index) => (
@@ -12,6 +17,7 @@ export const getItemsArray = (props, user, removeItemHandler) => {
         itemPrice={element.itemPrice}
         totalItemPrice={element.quantity * element.itemPrice}
         onDeleteItem={removeItemHandler}
+        onSaveItem={saveItemHandler}
         items={user.items}
       />
     ));

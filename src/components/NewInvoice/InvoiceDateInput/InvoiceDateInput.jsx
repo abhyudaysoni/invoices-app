@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "./styles";
+import clear from "../../../assets/icons/clear.svg";
+import save from "../../../assets/icons/save.svg";
 
 const InvoiceDateInput = (props) => {
   const [invoiceDate, setInvoiceDate] = useState(
@@ -26,6 +28,18 @@ const InvoiceDateInput = (props) => {
     };
     setPaymentDate(date);
   };
+
+  const clearDatesHandler = () => {
+    setInvoiceDate({});
+    setPaymentDate({});
+  };
+  const saveDatesHandler = () => {
+    props.setInvoice({
+      ...props.invoice,
+      invoiceDate: invoiceDate,
+      paymentDate: paymentDate,
+    });
+  };
   return (
     <Container>
       <div className="date label-input">
@@ -44,6 +58,20 @@ const InvoiceDateInput = (props) => {
           type="date"
           value={`${paymentDate.year}-${paymentDate.month}-${paymentDate.day}`}
           onChange={paymentDateHandler}
+        />
+      </div>
+      <div>
+        <img
+          className="form-actions"
+          src={clear}
+          onClick={clearDatesHandler}
+          alt="clear"
+        />
+        <img
+          className="form-actions"
+          src={save}
+          onClick={saveDatesHandler}
+          alt="save"
         />
       </div>
     </Container>

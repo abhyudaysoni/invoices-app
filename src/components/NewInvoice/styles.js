@@ -61,6 +61,7 @@ export const Container = styled.section`
     font-size: 1rem;
     font-weight: 700;
     color: #646566;
+    margin: 1rem auto;
   }
   & .form-options {
     display: flex;
@@ -87,6 +88,25 @@ export const Container = styled.section`
       background: #7c5df9;
       color: #edeef0;
       padding: 0 3rem;
+    }
+  }
+  .form-actions {
+    cursor: pointer;
+    height: 20px;
+    margin: 0rem 1rem 2rem 0;
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  .item-action {
+    display: flex;
+    align-items: center;
+    img {
+      margin: 1rem;
+    }
+    span {
+      cursor: pointer;
     }
   }
   @keyframes new-invoice-open {

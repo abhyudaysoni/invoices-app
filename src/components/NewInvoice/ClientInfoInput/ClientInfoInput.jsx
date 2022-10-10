@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "./styles";
+import clear from "../../../assets/icons/clear.svg";
+import save from "../../../assets/icons/save.svg";
 
 const ClientInfoInput = (props) => {
   const [name, setName] = useState(props?.user?.name || "");
@@ -10,6 +12,17 @@ const ClientInfoInput = (props) => {
   };
   const emailHandler = (e) => {
     setEmail(e.target.value);
+  };
+  const clearClientInfoHndler = () => {
+    setEmail("");
+    setName("");
+  };
+  const saveClientInfoHndler = () => {
+    props.setInvoice({
+      ...props.invoice,
+      name: name,
+      email: email,
+    });
   };
   return (
     <Container>
@@ -29,6 +42,20 @@ const ClientInfoInput = (props) => {
           type="email"
           value={email}
           onChange={emailHandler}
+        />
+      </div>
+      <div>
+        <img
+          className="form-actions"
+          src={clear}
+          onClick={clearClientInfoHndler}
+          alt="clear"
+        />
+        <img
+          className="form-actions"
+          src={save}
+          onClick={saveClientInfoHndler}
+          alt="save"
         />
       </div>
     </Container>

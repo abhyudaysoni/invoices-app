@@ -34,14 +34,15 @@ export const Container = styled.div`
   & .label-input {
     margin: 0 0.5rem 0 0.5rem;
   }
-  #delete-item {
-    align-self: flex-end;
-    margin: 1rem;
-    padding: 0.5rem;
-    img {
-      height: 2rem;
+  .item-actions {
+    display: flex;
+    .item-action {
+      cursor: pointer;
+      height: 20px;
+      margin: 5px;
     }
   }
+
   @media (max-width: 550px) {
     flex-direction: column;
     & .label-input-name {

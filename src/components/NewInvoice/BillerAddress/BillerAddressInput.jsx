@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { Container } from "./styles";
+import clear from "../../../assets/icons/clear.svg";
+import save from "../../../assets/icons/save.svg";
 
-const AddressInput = (props) => {
-  const [street, setStreet] = useState(props?.address?.street || "");
-  const [city, setCity] = useState(props?.address?.city || "");
-  const [area, setArea] = useState(props?.address?.area || "");
-  const [country, setCountry] = useState(props?.address?.country || "");
-  const [zip, setZip] = useState(props?.address?.zip || "");
+const BillerAddressInput = (props) => {
+  const [street, setStreet] = useState(props?.billerAddress?.street || "");
+  const [city, setCity] = useState(props?.billerAddress?.city || "");
+  const [area, setArea] = useState(props?.billerAddress?.area || "");
+  const [country, setCountry] = useState(props?.billerAddress?.country || "");
+  const [zip, setZip] = useState(props?.billerAddress?.zip || "");
   const streetHandler = (e) => {
     setStreet(e.target.value);
   };
@@ -22,6 +24,25 @@ const AddressInput = (props) => {
   };
   const zipHandler = (e) => {
     setZip(e.target.value);
+  };
+  const saveBAddressHandler = () => {
+    props.setInvoice({
+      ...props.invoice,
+      billerAddress: {
+        street: street,
+        city: city,
+        area: area,
+        country: country,
+        zip: zip,
+      },
+    });
+  };
+  const clearBAddressHandler = () => {
+    setStreet("");
+    setArea("");
+    setCity("");
+    setCountry("");
+    setZip("");
   };
   return (
     <Container>
@@ -56,9 +77,23 @@ const AddressInput = (props) => {
           <label htmlFor="zip">Zip</label>
           <input id="zip" type="text" onChange={zipHandler} value={zip} />
         </div>
+        <div>
+          <img
+            className="form-actions"
+            src={clear}
+            onClick={clearBAddressHandler}
+            alt="clear"
+          />
+          <img
+            className="form-actions"
+            src={save}
+            onClick={saveBAddressHandler}
+            alt="save"
+          />
+        </div>
       </div>
     </Container>
   );
 };
 
-export default AddressInput;
+export default BillerAddressInput;

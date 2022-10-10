@@ -7,7 +7,6 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 import NewInvoice from "../NewInvoice/NewInvoice";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Homepage(props) {
   const navigate = useNavigate();
   const [filterOptionVisibility, setFilterOptionVisibility] = useState(false);

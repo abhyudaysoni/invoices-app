@@ -33,7 +33,7 @@ const AppRoutes = (props) => {
           />
           <Route
             path="/invoices/new"
-            element={<Homepage status="pending" invoices={props.invoices} />}
+            element={<Homepage status="none" invoices={props.invoices} />}
             exact
           />
           <Route

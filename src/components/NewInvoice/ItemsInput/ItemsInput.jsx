@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "./styles";
-import Button from "../../UI/Button/Button";
 import deleteItem from "../../../assets/icons/icon-delete.svg";
+import save from "../../../assets/icons/save.svg";
 
 const ItemsInput = (props) => {
   const [itemName, setItemName] = useState(props.name || "");
@@ -20,7 +20,7 @@ const ItemsInput = (props) => {
     setItemPrice(e.target.value);
   };
   const totalItemPriceHandler = (e) => {
-    setTotalItemPrice(e.target.value);
+    setTotalItemPrice(quantity * itemPrice);
   };
   return (
     <Container>
@@ -64,13 +64,20 @@ const ItemsInput = (props) => {
             onChange={totalItemPriceHandler}
           />
         </div>
-        <Button id="delete-item">
+        <div className="item-actions">
           <img
             src={deleteItem}
+            className="item-action"
             alt="delete-item"
-            onClick={props.onDeleteItem.bind(null, props.itemKey)}
+            onClick={props.onDeleteItem.bind(null, props.itemKey, itemName)}
           />
-        </Button>
+          <img
+            className="item-action"
+            src={save}
+            onClick={props.onSaveItem.bind(null, itemName, quantity, itemPrice)}
+            alt="save"
+          />
+        </div>
       </div>
     </Container>
   );
