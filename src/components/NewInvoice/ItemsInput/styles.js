@@ -4,6 +4,9 @@ export const Container = styled.div`
   margin: 1rem;
   display: flex;
   margin: 0 0.5rem 0 0.5rem;
+  h3 {
+    width: 100px;
+  }
   & .label-input-name {
     margin: 0 0.5rem 0 0.5rem;
   }

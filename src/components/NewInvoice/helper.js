@@ -7,7 +7,7 @@ export const getItemsArray = (
   saveItemHandler
 ) => {
   let itemsArr = [];
-  if (user) {
+  if (user?.items) {
     itemsArr = user.items.map((element, index) => (
       <ItemsInput
         key={index + Math.random()}

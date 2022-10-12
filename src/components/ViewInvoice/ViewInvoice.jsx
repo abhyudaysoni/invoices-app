@@ -18,6 +18,8 @@ const ViewInvoice = (props) => {
     setEditVisibility((prev) => !prev);
   };
 
+  const deleteInvoiceHandler = () => {};
+
   const overlayHandler = () => {
     setEditVisibility(false);
     navigate(`/invoices/user/${params.userID}`);
@@ -28,6 +30,7 @@ const ViewInvoice = (props) => {
         filteredUser={user}
         userID={params.userID}
         onEdit={editVisibilityHandler}
+        onDelete={deleteInvoiceHandler}
       />
       <DetailsCard filteredUser={user} />
       {editVisibility &&

@@ -9,6 +9,7 @@ const useFetchGet = (url) => {
         .then((data) => {
           const loadedInvoices = [];
           for (const key in data) {
+            data[key].fid = key;
             loadedInvoices.push(data[key]);
           }
           setData(loadedInvoices);

@@ -4,12 +4,16 @@ import Homepage from "./components/Homepage/Homepage";
 import Loading from "./components/UI/Loading/Loading";
 import ViewInvoice from "./components/ViewInvoice/ViewInvoice";
 import PageNotFound from "./components/UI/PageNotFound";
+import { url } from "./constants/url";
+import useFetchGet from "./hooks/useFetchGet";
+
 const AppRoutes = (props) => {
+  const data = useFetchGet(url);
   return (
     <>
       <Header />
-      {!props.invoices && <Loading />}
-      {props.invoices && (
+      {!data && <Loading />}
+      {data && (
         <Routes>
           <Route
             path="/"
@@ -18,31 +22,31 @@ const AppRoutes = (props) => {
           />
           <Route
             path="/invoices"
-            element={<Homepage status="none" invoices={props.invoices} />}
+            element={<Homepage status="none" invoices={data} />}
             exact
           />
           <Route
             path="/invoices/paid"
-            element={<Homepage status="paid" invoices={props.invoices} />}
+            element={<Homepage status="paid" invoices={data} />}
             exact
           />
           <Route
             path="/invoices/pending"
-            element={<Homepage status="pending" invoices={props.invoices} />}
+            element={<Homepage status="pending" invoices={data} />}
             exact
           />
           <Route
             path="/invoices/new"
-            element={<Homepage status="none" invoices={props.invoices} />}
+            element={<Homepage status="none" invoices={data} />}
             exact
           />
           <Route
             path="/invoices/user/:userID"
-            element={<ViewInvoice invoices={props.invoices} />}
+            element={<ViewInvoice invoices={data} />}
           />
           <Route
             path="/invoices/user/:userID/edit"
-            element={<ViewInvoice invoices={props.invoices} />}
+            element={<ViewInvoice invoices={data} />}
             exact
           />
           <Route path="/*" element={<PageNotFound />} />

@@ -25,7 +25,7 @@ const StatusCard = (props) => {
           </Button>
         </Link>
         <Link>
-          <Button>
+          <Button onClick={props.onDelete}>
             <img src={IconDelete} alt="delete" />
           </Button>
         </Link>

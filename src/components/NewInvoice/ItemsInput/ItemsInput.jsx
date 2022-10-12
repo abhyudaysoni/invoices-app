@@ -15,12 +15,11 @@ const ItemsInput = (props) => {
   };
   const quantityHandler = (e) => {
     setQuantity(e.target.value);
+    setTotalItemPrice((e.target.value * itemPrice).toFixed(2));
   };
   const itemPriceHandler = (e) => {
     setItemPrice(e.target.value);
-  };
-  const totalItemPriceHandler = (e) => {
-    setTotalItemPrice(quantity * itemPrice);
+    setTotalItemPrice((quantity * e.target.value).toFixed(2));
   };
   return (
     <Container>
@@ -55,14 +54,7 @@ const ItemsInput = (props) => {
           />
         </div>
         <div className="label-input">
-          <input
-            id="total-price"
-            type="text"
-            placeholder="Total Price"
-            disabled
-            value={totalItemPrice}
-            onChange={totalItemPriceHandler}
-          />
+          <h3>{totalItemPrice}</h3>
         </div>
         <div className="item-actions">
           <img

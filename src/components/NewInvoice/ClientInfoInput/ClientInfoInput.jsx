@@ -4,8 +4,8 @@ import clear from "../../../assets/icons/clear.svg";
 import save from "../../../assets/icons/save.svg";
 
 const ClientInfoInput = (props) => {
-  const [name, setName] = useState(props?.user?.name || "");
-  const [email, setEmail] = useState(props?.user?.email || "");
+  const [name, setName] = useState(props?.invoice.name || "");
+  const [email, setEmail] = useState(props?.invoice?.email || "");
 
   const nameHandler = (e) => {
     setName(e.target.value);

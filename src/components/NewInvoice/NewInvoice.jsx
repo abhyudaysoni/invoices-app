@@ -19,13 +19,9 @@ const NewInvoice = (props) => {
   const params = useParams();
   const navigate = useNavigate();
   const [invoice, setInvoice] = useState(
-    params.userID ? getUser(props, params) : {}
+    params.userID ? getUser(props, params) : ""
   );
-  let user;
-  if (params.userID) {
-    user = getUser(props, params);
-  }
-  const [itemsArr, setItemsArr] = useState(user?.items || []);
+  const [itemsArr, setItemsArr] = useState(invoice?.items || []);
   const removeItemHandler = (itemKey, itemName, e) => {
     setItems((prev) =>
       prev.filter((element) => {
@@ -48,7 +44,7 @@ const NewInvoice = (props) => {
     });
   };
   const [items, setItems] = useState(
-    getItemsArray(props, user, removeItemHandler, saveItemHandler)
+    getItemsArray(props, invoice, removeItemHandler, saveItemHandler)
   );
   const newItemHandler = () => {
     setItems((prev) => [
@@ -68,8 +64,8 @@ const NewInvoice = (props) => {
   };
 
   const saveAllItemsHandler = () => {
-    let sum = 0;
-    itemsArr.map((element) => {
+    let sum;
+    sum = itemsArr.map((element) => {
       sum += Number(element.totalItemPrice);
       return sum;
     });
@@ -79,8 +75,13 @@ const NewInvoice = (props) => {
   };
 
   const saveFormHandler = () => {
-    console.log(invoice);
-    post(url, invoice);
+    if (!invoice.items || !invoice) {
+      alert("Please enter atleast one item");
+      return;
+    }
+    if (invoice.items) {
+      post(url, invoice);
+    }
     navigate(`/`);
   };
   const discardFormHandler = () => {
@@ -97,30 +98,20 @@ const NewInvoice = (props) => {
       <form>
         <h2>Bill From</h2>
         <BillerAddressInput
-          billerAddress={user?.billerAddress}
-          user={user}
+          billerAddress={invoice?.billerAddress}
           invoice={invoice}
           setInvoice={setInvoice}
         />
         <h2>Bill To</h2>
-        <ClientInfoInput
-          user={user}
-          invoice={invoice}
-          setInvoice={setInvoice}
-        />
+        <ClientInfoInput invoice={invoice} setInvoice={setInvoice} />
         <h2>Client Address</h2>
         <ClientAddressInput
-          clientAddress={user?.clientAddress}
-          user={user}
+          clientAddress={invoice?.clientAddress}
           invoice={invoice}
           setInvoice={setInvoice}
         />
         <h2>Dates</h2>
-        <InvoiceDateInput
-          user={user}
-          invoice={invoice}
-          setInvoice={setInvoice}
-        />
+        <InvoiceDateInput invoice={invoice} setInvoice={setInvoice} />
         <h2 id="item-list-heading">Item List</h2>
         {items}
         <Button id="btn-add-new-item" onClick={newItemHandler}>
