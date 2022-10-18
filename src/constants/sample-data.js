@@ -1,6 +1,5 @@
 export const sampleData = [
   {
-    id: "GH4568",
     name: "John Doe",
     amount: "",
     status: "pending",
@@ -45,7 +44,6 @@ export const sampleData = [
     ],
   },
   {
-    id: "GH4569",
     name: "Jane Doe",
     amount: "",
     status: "paid",
