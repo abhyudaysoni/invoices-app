@@ -1,29 +1,39 @@
 import { v4 as uuidv4 } from "uuid";
 import { userURl } from "../constants/url";
 
-export const post = (url, invoice) => {
+export const post = async (url, invoice) => {
   console.log(invoice);
   if (!invoice.id) {
     const id = uuidv4();
     invoice.id = String(id);
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(invoice),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(invoice),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   } else {
-    fetch(userURl + invoice.fid, {
-      method: "PATCH",
-      body: JSON.stringify(invoice),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    try {
+      const response = await fetch(userURl + invoice.fid, {
+        method: "PUT",
+        body: JSON.stringify(invoice),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
