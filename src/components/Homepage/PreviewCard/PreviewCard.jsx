@@ -14,7 +14,7 @@ const Card = (props) => {
         </p>
       </MediaQuery>
       <p className="invoice-name">{props.name}</p>
-      <h2 className="invoice-amount">${props.amount}</h2>
+      <h2 className="invoice-amount">${Number(props.amount).toFixed(2)}</h2>
       <div className="invoice-status">
         <span className={"dot"}></span>
         {props.status}

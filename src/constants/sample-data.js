@@ -1,7 +1,7 @@
 export const sampleData = [
   {
     name: "John Doe",
-    amount: "",
+    amount: 140,
     status: "pending",
     clientAddress: {
       street: "4729 Marion Street",
@@ -45,7 +45,7 @@ export const sampleData = [
   },
   {
     name: "Jane Doe",
-    amount: "",
+    amount: 500,
     status: "paid",
     clientAddress: {
       street: "2953 Rocket Drive",

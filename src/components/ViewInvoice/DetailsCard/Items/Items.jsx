@@ -16,7 +16,7 @@ const Items = (props) => {
   const totalAmountRow = (
     <>
       <p>Total Amount</p>
-      <h2>${props.amount}</h2>
+      <h2>${Number(props.amount).toFixed(2)}</h2>
     </>
   );
   const items = props.items.map((element, index) => (

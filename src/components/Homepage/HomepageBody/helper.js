@@ -27,7 +27,7 @@ export const getFilteredData = (status, invoices) => {
       return sum;
     });
     totalAmount = tempTotalAmount[tempTotalAmount.length - 1];
-    user.amount = totalAmount.toFixed(2);
+    // user.amount = totalAmount.toFixed(2);
     return (
       <NavLink to={`/invoices/user/${user.id}`} key={user.id}>
         <PreviewCard

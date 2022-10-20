@@ -14,6 +14,7 @@ import save from "../../assets/icons/save.svg";
 import { useNavigate } from "react-router-dom";
 import { post } from "../../api/api";
 import { url } from "../../constants/url";
+import { useSelector } from "react-redux";
 
 const NewInvoice = (props) => {
   const params = useParams();
@@ -64,13 +65,19 @@ const NewInvoice = (props) => {
   };
 
   const saveAllItemsHandler = () => {
-    let sum;
+    let sum = 0;
     sum = itemsArr.map((element) => {
       sum += Number(element.totalItemPrice);
+      console.log(element.totalItemPrice);
       return sum;
     });
     setInvoice((prev) => {
-      return { ...prev, items: itemsArr, status: "pending", amount: sum };
+      return {
+        ...prev,
+        items: itemsArr,
+        status: "pending",
+        amount: sum[sum.length - 1],
+      };
     });
   };
 

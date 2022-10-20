@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewInvoice } from "../store/invoicesSlice";
 
 const useFetchGet = (url) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState(null);
   useEffect(() => {
     const getData = () => {
@@ -11,6 +14,7 @@ const useFetchGet = (url) => {
           for (const key in data) {
             data[key].fid = key;
             loadedInvoices.push(data[key]);
+            dispatch(addNewInvoice(data[key]));
           }
           setData(loadedInvoices);
         })

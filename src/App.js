@@ -1,6 +1,6 @@
 import "./App.css";
 import AppRoutes from "./AppRoutes";
-// import { postSampleData } from "./api/postSampleData";
+import { postSampleData } from "./api/postSampleData";
 
 function App() {
   return (
