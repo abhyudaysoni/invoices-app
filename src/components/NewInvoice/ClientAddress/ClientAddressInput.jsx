@@ -1,48 +1,64 @@
 import React from "react";
-import { useState } from "react";
 import { Container } from "./styles";
-import clear from "../../../assets/icons/clear.svg";
-import save from "../../../assets/icons/save.svg";
+import { useDispatch } from "react-redux";
 
 const ClientAddressInput = (props) => {
-  const [street, setStreet] = useState(props?.clientAddress?.street || "");
-  const [city, setCity] = useState(props?.clientAddress?.city || "");
-  const [area, setArea] = useState(props?.clientAddress?.area || "");
-  const [country, setCountry] = useState(props?.clientAddress?.country || "");
-  const [zip, setZip] = useState(props?.clientAddress?.zip || "");
+  const dispatch = useDispatch();
+  const { street, area, country, zip, city } = props.invoice.clientAddress;
   const streetHandler = (e) => {
-    setStreet(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        clientAddress: {
+          ...props.invoice.clientAddress,
+          street: e.target.value,
+        },
+      })
+    );
   };
   const cityHandler = (e) => {
-    setCity(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        clientAddress: {
+          ...props.invoice.clientAddress,
+          city: e.target.value,
+        },
+      })
+    );
   };
   const areaHandler = (e) => {
-    setArea(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        clientAddress: {
+          ...props.invoice.clientAddress,
+          area: e.target.value,
+        },
+      })
+    );
   };
   const countryHandler = (e) => {
-    setCountry(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        clientAddress: {
+          ...props.invoice.clientAddress,
+          country: e.target.value,
+        },
+      })
+    );
   };
   const zipHandler = (e) => {
-    setZip(e.target.value);
-  };
-  const clearCAddressHandler = () => {
-    setStreet("");
-    setArea("");
-    setCity("");
-    setCountry("");
-    setZip("");
-  };
-  const saveCAddressHandler = () => {
-    props.setInvoice({
-      ...props.invoice,
-      clientAddress: {
-        street: street,
-        city: city,
-        area: area,
-        country: country,
-        zip: zip,
-      },
-    });
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        clientAddress: {
+          ...props.invoice.clientAddress,
+          zip: e.target.value,
+        },
+      })
+    );
   };
   return (
     <Container>
@@ -76,20 +92,6 @@ const ClientAddressInput = (props) => {
         <div className="label-input">
           <label htmlFor="zip">Zip</label>
           <input id="zip" type="text" onChange={zipHandler} value={zip} />
-        </div>
-        <div>
-          <img
-            className="form-actions"
-            src={clear}
-            onClick={clearCAddressHandler}
-            alt="clear"
-          />
-          <img
-            className="form-actions"
-            src={save}
-            onClick={saveCAddressHandler}
-            alt="save"
-          />
         </div>
       </div>
     </Container>

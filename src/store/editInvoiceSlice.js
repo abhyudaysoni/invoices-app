@@ -36,28 +36,20 @@ const editInvoiceSlice = createSlice({
   name: "editInvoiceSlice",
   initialState: editInvoiceInitialState,
   reducers: {
-    setName(state, action) {},
-    setEmail(state, action) {},
-    setAmount(state, action) {},
-    setStatus(state, action) {},
-    setClientAddress(state, action) {},
-    setBillerAddress(state, action) {},
-    setItems(state, action) {},
-    setInvoiceDate(state, action) {},
-    setPaymentDate(state, action) {},
+    setEditInvoice(state, action) {
+      state.name = action.payload.name;
+      state.email = action.payload.email;
+      state.amount = action.payload.amount;
+      state.status = action.payload.status;
+      state.clientAddress = action.payload.clientAddress;
+      state.billerAddress = action.payload.billerAddress;
+      state.items = action.payload.items;
+      state.invoiceDate = action.payload.invoiceDate;
+      state.paymentDate = action.payload.paymentDate;
+    },
   },
 });
 
-export const {
-  setName,
-  setEmail,
-  setAmount,
-  setBillerAddress,
-  setClientAddress,
-  setItems,
-  setInvoiceDate,
-  setPaymentDate,
-  setStatus,
-} = editInvoiceSlice.actions;
+export const { setEditInvoice } = editInvoiceSlice.actions;
 
 export default editInvoiceSlice.reducer;

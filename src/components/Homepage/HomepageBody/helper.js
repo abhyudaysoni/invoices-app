@@ -12,22 +12,7 @@ export const getFilteredData = (status, invoices) => {
   if (status === "pending") {
     displayData = invoices.filter((user) => user.status === "pending");
   }
-
-  displayData = displayData.map((user, index) => {
-    let totalAmount = 0;
-    let tempTotalAmount;
-    let totalItemsArray = user.items.map((item) => {
-      let sum = 0;
-      sum = sum + item.quantity * item.itemPrice;
-      return sum;
-    });
-    let sum = 0;
-    tempTotalAmount = totalItemsArray.map((item) => {
-      sum = sum + item;
-      return sum;
-    });
-    totalAmount = tempTotalAmount[tempTotalAmount.length - 1];
-    // user.amount = totalAmount.toFixed(2);
+  displayData = displayData.map((user) => {
     return (
       <NavLink to={`/invoices/user/${user.id}`} key={user.id}>
         <PreviewCard

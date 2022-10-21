@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addNewInvoice } from "../store/invoicesSlice";
 
 const useFetchGet = (url) => {
@@ -21,7 +21,7 @@ const useFetchGet = (url) => {
         .catch((error) => console.log(error));
     };
     getData();
-  }, [url]);
+  }, [url, dispatch]);
   return data;
 };
 

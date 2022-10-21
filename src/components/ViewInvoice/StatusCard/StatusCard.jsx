@@ -20,7 +20,7 @@ const StatusCard = (props) => {
       </div>
       <div className="edit-options">
         <Link to={`/invoices/user/${props.userID}/edit`}>
-          <Button onClick={props.onEdit}>
+          <Button onClick={props.onEdit.bind(null, props.userID)}>
             <img src={IconEdit} alt="edit" />
           </Button>
         </Link>

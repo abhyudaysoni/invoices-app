@@ -1,11 +1,6 @@
 import ItemsInput from "./ItemsInput/ItemsInput";
 
-export const getItemsArray = (
-  props,
-  user,
-  removeItemHandler,
-  saveItemHandler
-) => {
+export const getItemsArray = (user, removeItemHandler, saveItemHandler) => {
   let itemsArr = [];
   if (user?.items) {
     itemsArr = user.items.map((element, index) => (

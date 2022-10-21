@@ -1,28 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "./styles";
-import clear from "../../../assets/icons/clear.svg";
-import save from "../../../assets/icons/save.svg";
+import { useDispatch } from "react-redux";
 
 const ClientInfoInput = (props) => {
-  const [name, setName] = useState(props?.invoice.name || "");
-  const [email, setEmail] = useState(props?.invoice?.email || "");
-
+  const dispatch = useDispatch();
+  const name = props.invoice.name;
+  const email = props.invoice.email;
   const nameHandler = (e) => {
-    setName(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        name: e.target.value,
+      })
+    );
   };
   const emailHandler = (e) => {
-    setEmail(e.target.value);
-  };
-  const clearClientInfoHndler = () => {
-    setEmail("");
-    setName("");
-  };
-  const saveClientInfoHndler = () => {
-    props.setInvoice({
-      ...props.invoice,
-      name: name,
-      email: email,
-    });
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        email: e.target.value,
+      })
+    );
   };
   return (
     <Container>
@@ -42,20 +40,6 @@ const ClientInfoInput = (props) => {
           type="email"
           value={email}
           onChange={emailHandler}
-        />
-      </div>
-      <div>
-        <img
-          className="form-actions"
-          src={clear}
-          onClick={clearClientInfoHndler}
-          alt="clear"
-        />
-        <img
-          className="form-actions"
-          src={save}
-          onClick={saveClientInfoHndler}
-          alt="save"
         />
       </div>
     </Container>

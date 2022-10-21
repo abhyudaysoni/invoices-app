@@ -1,48 +1,64 @@
 import React from "react";
-import { useState } from "react";
 import { Container } from "./styles";
-import clear from "../../../assets/icons/clear.svg";
-import save from "../../../assets/icons/save.svg";
+import { useDispatch } from "react-redux";
 
 const BillerAddressInput = (props) => {
-  const [street, setStreet] = useState(props?.billerAddress?.street || "");
-  const [city, setCity] = useState(props?.billerAddress?.city || "");
-  const [area, setArea] = useState(props?.billerAddress?.area || "");
-  const [country, setCountry] = useState(props?.billerAddress?.country || "");
-  const [zip, setZip] = useState(props?.billerAddress?.zip || "");
+  const dispatch = useDispatch();
+  const { street, area, country, zip, city } = props.invoice.billerAddress;
   const streetHandler = (e) => {
-    setStreet(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        billerAddress: {
+          ...props.invoice.billerAddress,
+          street: e.target.value,
+        },
+      })
+    );
   };
   const cityHandler = (e) => {
-    setCity(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        billerAddress: {
+          ...props.invoice.billerAddress,
+          city: e.target.value,
+        },
+      })
+    );
   };
   const areaHandler = (e) => {
-    setArea(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        billerAddress: {
+          ...props.invoice.billerAddress,
+          area: e.target.value,
+        },
+      })
+    );
   };
   const countryHandler = (e) => {
-    setCountry(e.target.value);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        billerAddress: {
+          ...props.invoice.billerAddress,
+          country: e.target.value,
+        },
+      })
+    );
   };
   const zipHandler = (e) => {
-    setZip(e.target.value);
-  };
-  const saveBAddressHandler = () => {
-    props.setInvoice({
-      ...props.invoice,
-      billerAddress: {
-        street: street,
-        city: city,
-        area: area,
-        country: country,
-        zip: zip,
-      },
-    });
-  };
-  const clearBAddressHandler = () => {
-    setStreet("");
-    setArea("");
-    setCity("");
-    setCountry("");
-    setZip("");
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        billerAddress: {
+          ...props.invoice.billerAddress,
+          zip: e.target.value,
+        },
+      })
+    );
   };
   return (
     <Container>
@@ -76,20 +92,6 @@ const BillerAddressInput = (props) => {
         <div className="label-input">
           <label htmlFor="zip">Zip</label>
           <input id="zip" type="text" onChange={zipHandler} value={zip} />
-        </div>
-        <div>
-          <img
-            className="form-actions"
-            src={clear}
-            onClick={clearBAddressHandler}
-            alt="clear"
-          />
-          <img
-            className="form-actions"
-            src={save}
-            onClick={saveBAddressHandler}
-            alt="save"
-          />
         </div>
       </div>
     </Container>

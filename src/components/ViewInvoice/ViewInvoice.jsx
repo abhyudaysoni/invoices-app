@@ -7,14 +7,20 @@ import { Container } from "./styles";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import NewInvoice from "../NewInvoice/NewInvoice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setEditInvoice } from "../../store/editInvoiceSlice";
 
 const ViewInvoice = (props) => {
   const params = useParams();
+  const dispatch = useDispatch();
 
   const [editVisibility, setEditVisibility] = useState(false);
   const user = props.invoices.find((user) => user.id === params.userID);
   const navigate = useNavigate();
-  const editVisibilityHandler = () => {
+  const editVisibilityHandler = (userID, e) => {
+    dispatch(
+      setEditInvoice(props.invoices.find((element) => element.id === userID))
+    );
     setEditVisibility((prev) => !prev);
   };
 

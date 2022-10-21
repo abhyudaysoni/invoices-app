@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container } from "./styles";
-import clear from "../../../assets/icons/clear.svg";
-import save from "../../../assets/icons/save.svg";
+import { useDispatch } from "react-redux";
 
 const InvoiceDateInput = (props) => {
-  const [invoiceDate, setInvoiceDate] = useState(
-    props?.user?.invoiceDate || {}
-  );
-  const [paymentDate, setPaymentDate] = useState(
-    props?.user?.paymentDate || {}
-  );
+  const dispatch = useDispatch();
+  const invoiceDate = props.invoice.invoiceDate;
+  const paymentDate = props.invoice.paymentDate;
+
   const invoiceDateHandler = (e) => {
     let dateArray = e.target.value.split("-");
     let date = {
@@ -17,7 +14,12 @@ const InvoiceDateInput = (props) => {
       month: dateArray[1],
       year: dateArray[0],
     };
-    setInvoiceDate(date);
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        invoiceDate: date,
+      })
+    );
   };
   const paymentDateHandler = (e) => {
     let dateArray = e.target.value.split("-");
@@ -26,19 +28,12 @@ const InvoiceDateInput = (props) => {
       month: dateArray[1],
       year: dateArray[0],
     };
-    setPaymentDate(date);
-  };
-
-  const clearDatesHandler = () => {
-    setInvoiceDate({});
-    setPaymentDate({});
-  };
-  const saveDatesHandler = () => {
-    props.setInvoice({
-      ...props.invoice,
-      invoiceDate: invoiceDate,
-      paymentDate: paymentDate,
-    });
+    dispatch(
+      props.setInvoice({
+        ...props.invoice,
+        paymentDate: date,
+      })
+    );
   };
   return (
     <Container>
@@ -58,20 +53,6 @@ const InvoiceDateInput = (props) => {
           type="date"
           value={`${paymentDate.year}-${paymentDate.month}-${paymentDate.day}`}
           onChange={paymentDateHandler}
-        />
-      </div>
-      <div>
-        <img
-          className="form-actions"
-          src={clear}
-          onClick={clearDatesHandler}
-          alt="clear"
-        />
-        <img
-          className="form-actions"
-          src={save}
-          onClick={saveDatesHandler}
-          alt="save"
         />
       </div>
     </Container>
