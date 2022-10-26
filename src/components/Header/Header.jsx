@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <Container>
-      <Link to="/invoices">
+      <Link to="/">
         <img src={logo} className="logo" alt="logo-img"></img>
       </Link>
       <div className="account-options">

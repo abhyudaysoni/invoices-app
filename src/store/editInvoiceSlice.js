@@ -29,6 +29,8 @@ const editInvoiceInitialState = {
     month: "",
     year: "",
   },
+  id: "",
+  fid: "",
   items: [],
 };
 
@@ -46,6 +48,8 @@ const editInvoiceSlice = createSlice({
       state.items = action.payload.items;
       state.invoiceDate = action.payload.invoiceDate;
       state.paymentDate = action.payload.paymentDate;
+      state.id = action.payload.id;
+      state.fid = action.payload.fid;
     },
   },
 });

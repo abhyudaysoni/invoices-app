@@ -9,7 +9,7 @@ const Container = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 50%;
+  opacity: 20%;
   background: black;
   z-index: 5;
 `;

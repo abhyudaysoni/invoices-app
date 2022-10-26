@@ -46,6 +46,7 @@ const newInvoiceSlice = createSlice({
       state.items = action.payload.items;
       state.invoiceDate = action.payload.invoiceDate;
       state.paymentDate = action.payload.paymentDate;
+      state.id = action.payload.id;
     },
   },
 });

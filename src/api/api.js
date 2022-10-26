@@ -1,39 +1,63 @@
 import { v4 as uuidv4 } from "uuid";
-import { userURl } from "../constants/url";
+import { database } from "../firebase-config";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewInvoice } from "../store/invoicesSlice";
+import { useEffect } from "react";
 
-export const post = async (url, invoice) => {
-  console.log(invoice);
-  if (!invoice.id) {
-    const id = uuidv4();
-    invoice.id = String(id);
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: JSON.stringify(invoice),
-        headers: {
-          "Content-Type": "application/json",
-        },
+const collectionRef = collection(database, "invoices");
+
+export const addData = (invoice) => {
+  const id = uuidv4();
+  invoice.id = String(id);
+  invoice.status = "pending";
+  try {
+    addDoc(collectionRef, invoice).then((res) => {
+      alert("data added");
+    });
+  } catch (err) {
+    alert(err.message);
+  }
+};
+export const useGetData = () => {
+  const dispatch = useDispatch();
+  const invoices = useSelector((state) => state.invoices);
+  useEffect(() => {
+    getDocs(collectionRef).then((res) => {
+      res.docs.map((item) => {
+        const invoice = item.data();
+        invoice.fid = item.id;
+        dispatch(addNewInvoice(invoice));
+        return invoice;
       });
-      if (!response.ok) {
-        throw new Error("Something went wrong");
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  } else {
-    try {
-      const response = await fetch(userURl + invoice.fid, {
-        method: "PUT",
-        body: JSON.stringify(invoice),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Something went wrong");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    });
+  }, [dispatch]);
+  return invoices;
+};
+export const updateData = (invoice, fid) => {
+  try {
+    const docToUpdate = doc(database, "invoices", fid);
+    updateDoc(docToUpdate, invoice).then((res) => {
+      alert("data updated");
+    });
+  } catch (err) {
+    alert(err.message);
+  }
+};
+export const deleteData = (fid) => {
+  try {
+    const docToDelete = doc(database, "invoices", fid);
+    deleteDoc(docToDelete).then((res) => {
+      alert("data deleted");
+    });
+  } catch (err) {
+    alert(err.message);
   }
 };

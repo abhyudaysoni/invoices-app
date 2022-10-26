@@ -38,7 +38,6 @@ export const Container = styled.div`
   & .arrow-right {
     justify-self: right;
   }
-
   @media (max-width: 700px) {
     grid-template-columns: repeat(4, 1fr);
     padding: 1rem;

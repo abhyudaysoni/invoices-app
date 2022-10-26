@@ -20,6 +20,15 @@ export const Container = styled.section`
   & .homepage-preview {
     cursor: pointer;
   }
+  h4 {
+    text-align: center;
+    margin: 2rem 0 0 0;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: ${(props) =>
+      props.status === "pending" ? "#fff8f0" : "#ebfff8"};
+    color: ${(props) => (props.status === "pending" ? "#f98e24" : "#42cdac")};
+  }
   @media (max-width: 450px) {
     .no-data {
       img {

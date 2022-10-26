@@ -19,7 +19,7 @@ const Items = (props) => {
       <h2>${Number(props.amount).toFixed(2)}</h2>
     </>
   );
-  const items = props.items.map((element, index) => (
+  const items = props?.items?.map((element, index) => (
     <tr className="table-row" key={index}>
       <td className="name" align="left">
         {element.itemName}

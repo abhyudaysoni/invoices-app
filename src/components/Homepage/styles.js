@@ -16,5 +16,6 @@ export const Container = styled.section`
   }
   @media (max-width: 700px) {
     margin: 5rem auto;
+    width: 95%;
   }
 `;

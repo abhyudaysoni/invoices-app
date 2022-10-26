@@ -15,9 +15,6 @@ export const Container = styled.header`
   & .logo {
     width: 100%;
   }
-  & img {
-    cursor: pointer;
-  }
   & .display-mode-container {
     display: flex;
     justify-content: center;
