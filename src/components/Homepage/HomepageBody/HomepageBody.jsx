@@ -8,7 +8,6 @@ import Loading from "../../UI/Loading/Loading";
 const HomepageBody = (props) => {
   const invoices = useSelector((state) => state.invoices);
   const data = getFilteredData(props.status, invoices);
-  console.log(props.status);
   return (
     <Container status={props.status}>
       {!(props.status === "none") && (

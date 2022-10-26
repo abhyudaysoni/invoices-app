@@ -33,27 +33,31 @@ const ViewInvoice = (props) => {
     navigate(`/invoices/user/${params.userID}`);
   };
   return (
-    <Container status={user.status}>
-      <StatusCard
-        filteredUser={user}
-        userID={params.userID}
-        onEdit={editVisibilityHandler}
-        onDelete={deleteInvoiceHandler}
-      />
-      <DetailsCard filteredUser={user} />
-      {editVisibility &&
-        ReactDOM.createPortal(
-          <Backdrop onClick={overlayHandler}></Backdrop>,
-          document.getElementById("backdrop-root")
-        )}
-      {editVisibility && (
-        <NewInvoice
-          onCloseOverlay={overlayHandler}
-          userID={params.userID}
-          invoices={invoices}
-        />
+    <>
+      {invoices.length > 0 && (
+        <Container status={user.status}>
+          <StatusCard
+            filteredUser={user}
+            userID={params.userID}
+            onEdit={editVisibilityHandler}
+            onDelete={deleteInvoiceHandler}
+          />
+          <DetailsCard filteredUser={user} />
+          {editVisibility &&
+            ReactDOM.createPortal(
+              <Backdrop onClick={overlayHandler}></Backdrop>,
+              document.getElementById("backdrop-root")
+            )}
+          {editVisibility && (
+            <NewInvoice
+              onCloseOverlay={overlayHandler}
+              userID={params.userID}
+              invoices={invoices}
+            />
+          )}
+        </Container>
       )}
-    </Container>
+    </>
   );
 };
 
