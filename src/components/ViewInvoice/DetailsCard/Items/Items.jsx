@@ -1,8 +1,10 @@
 import React from "react";
 import { Container } from "./styles";
 import Card from "../../../UI/Card/Card";
+import { useSelector } from "react-redux";
 
 const Items = (props) => {
+  const isLight = useSelector((state) => state.displayMode.isLight);
   const tableHead = (
     <thead className="table-header">
       <tr className="table-row">
@@ -37,7 +39,7 @@ const Items = (props) => {
   ));
   return (
     <>
-      <Container>
+      <Container isLight={isLight}>
         <table>
           {tableHead}
           <tbody>{items}</tbody>

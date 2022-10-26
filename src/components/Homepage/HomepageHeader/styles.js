@@ -7,6 +7,7 @@ export const Container = styled.section`
   & .left {
     p {
       color: #454545;
+      color: ${(props) => (props.isLight ? "#454545" : "#d6d6d6")};
     }
     h1 {
       font-size: 40px;
@@ -31,7 +32,6 @@ export const Container = styled.section`
       width: 190px;
       justify-content: space-between;
       padding: 1rem;
-      color: black;
       font-size: 1rem;
       font-weight: 700;
       img {
@@ -52,7 +52,6 @@ export const Container = styled.section`
         position: fixed;
         background: #e9edf5;
         overflow: hidden;
-        box-shadow: 0px 0px 5px 1px #e6e6e6;
         z-index: 10;
         a {
           height: 100%;

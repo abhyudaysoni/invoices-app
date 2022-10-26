@@ -4,6 +4,8 @@ export const Container = styled.section`
   border-radius: 20px;
   background-color: white;
   padding: 2rem;
+  background: ${(props) => (props.isLight ? "white" : "#1e2139")};
+  color: ${(props) => (props.isLight ? "black" : "white")};
   & .id-biller-address {
     display: flex;
     flex-wrap: wrap;

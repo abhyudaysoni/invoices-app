@@ -4,11 +4,12 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.1fr;
   grid-gap: 1rem;
-  background-color: white;
   padding: 2rem;
   align-items: center;
   border-radius: 20px;
   height: fit-content;
+  background: ${(props) => (props.isLight ? "white" : "#1e2139")};
+  color: ${(props) => (props.isLight ? "black" : "white")};
   :hover {
     box-shadow: 0 0 2px 1px #7c5df9;
     transition: 0.2s;

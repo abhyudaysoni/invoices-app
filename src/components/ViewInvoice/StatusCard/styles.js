@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   border-radius: 20px;
-  background-color: white;
   padding: 1rem;
   margin: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-
+  background: ${(props) => (props.isLight ? "white" : "#1e2139")};
+  color: ${(props) => (props.isLight ? "black" : "white")};
   & .status {
     display: flex;
     align-items: center;

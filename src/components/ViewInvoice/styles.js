@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   margin: 2rem auto;
   width: 900px;
-  padding: 1rem;
-
+  padding: 2rem;
   & .btn-go-back {
     display: flex;
     align-items: center;
@@ -22,6 +21,8 @@ export const Container = styled.section`
     width: 100%;
   }
   @media (max-width: 700px) {
-    margin-top: 5rem;
+    margin: 5rem auto;
+    width: 95%;
+    padding: 1rem;
   }
 `;

@@ -6,10 +6,12 @@ import arrowDown from "../../../assets/icons/icon-arrow-down.svg";
 import MediaQuery from "react-responsive";
 import Card from "../../UI/Card/Card";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const HomepageHeader = (props) => {
+  const isLight = useSelector((state) => state.displayMode.isLight);
   return (
-    <Container>
+    <Container isLight={isLight}>
       <div className="left">
         <h1>Invoices</h1>
         <MediaQuery minWidth={600}>

@@ -12,6 +12,9 @@ export const Container = styled.header`
   border-radius: 0 20px 20px 0;
   overflow: hidden;
   z-index: 10;
+  img{
+    cursor: pointer;
+  }
   & .logo {
     width: 100%;
   }

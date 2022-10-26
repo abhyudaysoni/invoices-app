@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  background-color: #edebf5;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -15,6 +14,8 @@ export const Container = styled.section`
   padding: 2rem;
   overflow: scroll;
   z-index: 10;
+  background: ${(props) => (props.isLight ? "#edebf5" : "#1e2139")};
+  color: ${(props) => (props.isLight ? "black" : "white")};
   & .new-invoice-header {
     display: flex;
     align-items: center;
@@ -29,15 +30,14 @@ export const Container = styled.section`
     color: #7c5df9;
   }
   & #item-list-heading {
-    color: #454545;
+    color: ${(props) => (props.isLight ? "#454545" : "white")};
     font-size: 30px;
     font-weight: 500px;
   }
   & label {
-    color: #454545;
+    color: ${(props) => (props.isLight ? "#454545" : "white")};
   }
   & input {
-    background-color: #edebf5;
     border: 1px solid #cfd1d4;
     border-radius: 5px;
     height: 50px;
@@ -45,8 +45,9 @@ export const Container = styled.section`
     width: 100%;
     font-size: 1rem;
     padding: 1rem;
-    color: black;
     font-weight: 500;
+    background: ${(props) => (props.isLight ? "#edebf5" : "#1e2139")};
+    color: ${(props) => (props.isLight ? "black" : "white")};
   }
   & .label-input {
     display: flex;

@@ -18,6 +18,7 @@ const NewInvoice = (props) => {
   const navigate = useNavigate();
   const newInvoice = useSelector((state) => state.newInvoice);
   const editInvoice = useSelector((state) => state.editInvoice);
+  const isLight = useSelector((state) => state.displayMode.isLight);
   const invoice = params.userID ? editInvoice : newInvoice;
   const setInvoice = params.userID ? setEditInvoice : setNewInvoice;
   const saveFormHandler = () => {
@@ -29,7 +30,7 @@ const NewInvoice = (props) => {
     navigate("/");
   };
   return (
-    <Container>
+    <Container isLight={isLight}>
       <div className="new-invoice-header">
         <h1>New Invoice</h1>
         <Button onClick={props.onCloseOverlay}>

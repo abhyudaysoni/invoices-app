@@ -4,14 +4,16 @@ import ClientAddress from "./ClientAddress/ClientAddress";
 import Dates from "./Dates/Dates";
 import Items from "./Items/Items";
 import { Container } from "./styles";
+import { useSelector } from "react-redux";
 
 const DetailsCard = (props) => {
   const user = props.filteredUser;
   const id = user.id;
   const amount = user.amount;
+  const isLight = useSelector((state) => state.displayMode.isLight);
 
   return (
-    <Container>
+    <Container isLight={isLight}>
       <div className="id-biller-address">
         <h3>#{id}</h3>
         <BillerAddress billerAddress={user.billerAddress} />

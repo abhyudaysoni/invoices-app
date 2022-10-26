@@ -6,13 +6,3 @@
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
 }
-body {
-  background: #edebf5;
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-button {
-  cursor: pointer;
-}

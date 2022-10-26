@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-  margin: 5rem auto;
+  margin: 2rem auto;
   width: 900px;
-  padding: 1rem;
+  padding: 2rem;
   & .backdrop {
     opacity: 2%;
   }
@@ -17,5 +17,6 @@ export const Container = styled.section`
   @media (max-width: 700px) {
     margin: 5rem auto;
     width: 95%;
+    padding: 1rem;
   }
 `;

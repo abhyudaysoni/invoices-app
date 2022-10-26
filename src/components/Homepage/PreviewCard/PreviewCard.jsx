@@ -2,10 +2,17 @@ import React from "react";
 import { Container } from "./styles";
 import arrowRight from "../../../assets/icons/icon-arrow-right.svg";
 import MediaQuery from "react-responsive";
+import { useSelector } from "react-redux";
 
 const Card = (props) => {
+  const isLight = useSelector((state) => state.displayMode.isLight);
   return (
-    <Container id={props.id} className={props.className} status={props.status}>
+    <Container
+      id={props.id}
+      className={props.className}
+      status={props.status}
+      isLight={isLight}
+    >
       <h3 className="invoice-id">#...{props.id.slice(30, props.id.length)}</h3>
       <MediaQuery minWidth={700}>
         <p className="invoice-due-date">

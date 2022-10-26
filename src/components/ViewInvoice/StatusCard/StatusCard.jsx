@@ -4,12 +4,15 @@ import IconDelete from "../../../assets/icons/icon-delete.svg";
 import IconEdit from "../../../assets/icons/icon-edit.svg";
 import { Container } from "./styles";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const StatusCard = (props) => {
+  const isLight = useSelector((state) => state.displayMode.isLight);
   return (
     <Container
       className="view-invoice-status"
       status={props.filteredUser.status}
+      isLight={isLight}
     >
       <div className="status">
         <p>Status</p>
