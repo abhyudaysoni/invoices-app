@@ -9,7 +9,6 @@ import { GlobalStyles } from "./GlobalStyles";
 
 const Root = () => {
   const isLight = useSelector((state) => state.displayMode.isLight);
-  console.log(isLight);
   return (
     <>
       <GlobalStyles isLight={isLight} />

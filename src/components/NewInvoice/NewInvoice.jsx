@@ -8,8 +8,14 @@ import BillerAddressInput from "./BillerAddress/BillerAddressInput";
 import ClientAddressInput from "./ClientAddress/ClientAddressInput";
 import ClientInfoInput from "./ClientInfoInput/ClientInfoInput";
 import InvoiceDateInput from "./InvoiceDateInput/InvoiceDateInput";
-import { setEditInvoice } from "../../store/editInvoiceSlice";
-import { setNewInvoice } from "../../store/newInvoiceSlice";
+import {
+  setEditInvoice,
+  editInvoiceInitialState,
+} from "../../store/editInvoiceSlice";
+import {
+  setNewInvoice,
+  newInvoiceInitialState,
+} from "../../store/newInvoiceSlice";
 import { addData, updateData } from "../../api/api";
 
 const NewInvoice = (props) => {
@@ -24,9 +30,17 @@ const NewInvoice = (props) => {
   const saveFormHandler = () => {
     params.userID ? updateData(invoice, invoice.fid) : addData({ ...invoice });
     props.onCloseOverlay();
+    params.userID
+      ? dispatch(setEditInvoice(editInvoiceInitialState))
+      : dispatch(setNewInvoice(newInvoiceInitialState));
+    navigate("/");
   };
   const discardFormHandler = () => {
-    params.userID ? dispatch(setEditInvoice({})) : dispatch(setNewInvoice({}));
+    alert("Changes will not be saved");
+    params.userID
+      ? dispatch(setEditInvoice(editInvoiceInitialState))
+      : dispatch(setNewInvoice(newInvoiceInitialState));
+    props.onCloseOverlay();
     navigate("/");
   };
   return (

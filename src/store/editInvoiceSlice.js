@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const editInvoiceInitialState = {
+export const editInvoiceInitialState = {
   name: "",
   amount: "",
   status: "",

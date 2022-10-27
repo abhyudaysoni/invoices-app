@@ -26,6 +26,7 @@ const ViewInvoice = (props) => {
   const deleteInvoiceHandler = () => {
     deleteData(user.fid);
     navigate("/");
+    console.log("hello");
   };
 
   const overlayHandler = () => {
