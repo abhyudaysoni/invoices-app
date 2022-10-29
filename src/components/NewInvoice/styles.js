@@ -20,6 +20,10 @@ export const Container = styled.section`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    img {
+      border-radius: 5px;
+      background: ${(props) => (props.isLight ? "#edebf5" : "#1e2139")};
+    }
   }
   & h1 {
     font-size: 30px;
@@ -38,7 +42,7 @@ export const Container = styled.section`
     color: ${(props) => (props.isLight ? "#454545" : "white")};
   }
   & input {
-    border: 1px solid #cfd1d4;
+    border: 1px solid ${(props) => (props.isLight ? "#cfd1d4" : "#343859")};
     border-radius: 5px;
     height: 50px;
     margin: 1rem 0;
