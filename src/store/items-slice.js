@@ -20,6 +20,7 @@ const itemsSlice = createSlice({
           element.quantity = action.payload.quantity;
           element.totalItemPrice = action.payload.totalItemPrice;
         }
+        return element;
       });
       state = updated;
     },

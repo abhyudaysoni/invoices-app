@@ -24,14 +24,14 @@ const ItemInput = (props) => {
     setItem({
       ...item,
       quantity: e.target.value,
-      totalItemPrice: Number(e.target.value * item.itemPrice),
+      totalItemPrice: Number((e.target.value * item.itemPrice).toFixed(2)),
     });
     dispatch(
       updateItem({
         ...item,
         itemID: item.itemID,
         quantity: e.target.value,
-        totalItemPrice: Number(e.target.value * item.itemPrice),
+        totalItemPrice: Number((e.target.value * item.itemPrice).toFixed(2)),
       })
     );
   };
@@ -39,14 +39,14 @@ const ItemInput = (props) => {
     setItem({
       ...item,
       itemPrice: e.target.value,
-      totalItemPrice: Number(e.target.value * item.quantity),
+      totalItemPrice: Number((e.target.value * item.quantity).toFixed(2)),
     });
     dispatch(
       updateItem({
         ...item,
         itemID: item.itemID,
         itemPrice: e.target.value,
-        totalItemPrice: Number(e.target.value * item.quantity),
+        totalItemPrice: Number((e.target.value * item.quantity).toFixed(2)),
       })
     );
   };
@@ -85,7 +85,7 @@ const ItemInput = (props) => {
             />
           </div>
           <div className="input">
-            <h3>{item.totalItemPrice.toFixed(2)}</h3>
+            <h3>{Number(item.totalItemPrice).toFixed(2)}</h3>
           </div>
         </div>
         <div className="item-actions">

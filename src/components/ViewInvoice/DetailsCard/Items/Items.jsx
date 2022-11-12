@@ -33,7 +33,7 @@ const Items = (props) => {
         ${element.itemPrice}
       </td>
       <td className="total-item-price" align="right">
-        ${element.quantity * element.itemPrice}
+        ${Number(element.totalItemPrice).toFixed(2)}
       </td>
     </tr>
   ));

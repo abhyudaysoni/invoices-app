@@ -31,7 +31,6 @@ const NewInvoice = (props) => {
   const invoice = params.userID ? editInvoice : newInvoice;
   const setInvoice = params.userID ? setEditInvoice : setNewInvoice;
   const items = useSelector((state) => state.items);
-  console.log(invoice);
   useEffect(() => {
     if (params.userID) {
       invoice.items.map((item, index) => {
@@ -44,8 +43,10 @@ const NewInvoice = (props) => {
     let sum = 0;
     items.map((item) => {
       sum += Number(item.totalItemPrice);
+      return sum;
     });
     dispatch(setInvoice({ ...invoice, items: items, amount: sum.toFixed(2) }));
+    alert("all items saved");
   };
   const saveFormHandler = () => {
     params.userID ? updateData(invoice, invoice.fid) : addData({ ...invoice });
@@ -83,11 +84,12 @@ const NewInvoice = (props) => {
         <h2 id="item-list-heading">Item List</h2>
         <Items />
       </form>
-      <div>
+      <div className="item-options">
+        <p onClick={saveAllItems}>Save all Items</p>
         <img
           src={save}
           alt="save-items"
-          id="save-items-btn"
+          id="save-all-items"
           onClick={saveAllItems}
         />
       </div>

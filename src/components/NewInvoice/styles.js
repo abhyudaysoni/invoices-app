@@ -72,13 +72,14 @@ export const Container = styled.section`
     margin: 1rem auto;
   }
   .item-options {
+    cursor: pointer;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     margin: 0 1rem;
     margin-bottom: 2rem;
     #save-all-items {
-      cursor: pointer;
-      height: 20px;
+      height: 30px;
       padding: 0 0.5rem;
     }
     span {

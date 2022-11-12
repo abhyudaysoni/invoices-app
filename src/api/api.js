@@ -11,11 +11,11 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { addNewInvoice } from "../store/invoices-slice";
 import { useEffect } from "react";
+import { sampleData } from "../constants/sample-data";
 
 const collectionRef = collection(database, "invoices");
 
 export const addData = (invoice) => {
-  console.log(invoice);
   const id = uuidv4();
   invoice.id = String(id);
   invoice.status = "pending";
@@ -26,6 +26,7 @@ export const addData = (invoice) => {
   } catch (err) {
     alert(err.message);
   }
+  console.log(invoice);
 };
 export const useGetData = () => {
   const dispatch = useDispatch();
@@ -61,4 +62,11 @@ export const deleteData = (fid) => {
   } catch (err) {
     alert(err.message);
   }
+};
+
+export const postSampleData = () => {
+  sampleData.map((item) => {
+    addData(item);
+    return item;
+  });
 };

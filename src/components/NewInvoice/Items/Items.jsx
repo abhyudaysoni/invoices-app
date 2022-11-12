@@ -9,7 +9,7 @@ const Items = (props) => {
   const items = useSelector((state) => state.items);
   const dispatch = useDispatch();
   const deleteItemHandler = (itemID, e) => {
-    // alert("Are you sure you want to delete?");
+    alert("Are you sure you want to delete?");
     dispatch(deleteItem(itemID));
   };
   const newItemHandler = () => {
