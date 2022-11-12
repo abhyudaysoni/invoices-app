@@ -9,12 +9,13 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewInvoice } from "../store/invoicesSlice";
+import { addNewInvoice } from "../store/invoices-slice";
 import { useEffect } from "react";
 
 const collectionRef = collection(database, "invoices");
 
 export const addData = (invoice) => {
+  console.log(invoice);
   const id = uuidv4();
   invoice.id = String(id);
   invoice.status = "pending";

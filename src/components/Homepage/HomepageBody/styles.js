@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   display: flex;
+  .no-invoices img {
+    width: 500px;
+    align-self: center;
+  }
   .no-data {
     display: flex;
     flex-direction: column;

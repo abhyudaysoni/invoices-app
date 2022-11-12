@@ -2,35 +2,53 @@ import React from "react";
 import { Container } from "./styles";
 import deleteItem from "../../../../assets/icons/icon-delete.svg";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import save from "../../../../assets/icons/save.svg";
+import { useDispatch } from "react-redux";
+import { updateItem } from "../../../../store/items-slice";
 
 const ItemInput = (props) => {
-  console.log(props);
+  const dispatch = useDispatch();
   const [item, setItem] = useState({
-    itemName: props.itemName,
-    itemPrice: Number(props.itemPrice),
-    quantity: Number(props.quantity),
-    totalItemPrice: Number(props.totalItemPrice) || 0,
+    itemName: props.itemName || "",
+    itemPrice: props.itemPrice,
+    quantity: props.quantity,
+    totalItemPrice: props.totalItemPrice || 0,
+    itemID: props.itemID,
   });
-
-  // console.log(item);
   const itemNameHandler = (e) => {
     setItem({ ...item, itemName: e.target.value });
+    dispatch(
+      updateItem({ ...item, itemID: item.itemID, itemName: e.target.value })
+    );
   };
   const quantityHandler = (e) => {
-    setItem({ ...item, quantity: e.target.value });
     setItem({
       ...item,
+      quantity: e.target.value,
       totalItemPrice: Number(e.target.value * item.itemPrice),
     });
+    dispatch(
+      updateItem({
+        ...item,
+        itemID: item.itemID,
+        quantity: e.target.value,
+        totalItemPrice: Number(e.target.value * item.itemPrice),
+      })
+    );
   };
   const itemPriceHandler = (e) => {
-    setItem({ ...item, itemPrice: e.target.value });
     setItem({
       ...item,
+      itemPrice: e.target.value,
       totalItemPrice: Number(e.target.value * item.quantity),
     });
+    dispatch(
+      updateItem({
+        ...item,
+        itemID: item.itemID,
+        itemPrice: e.target.value,
+        totalItemPrice: Number(e.target.value * item.quantity),
+      })
+    );
   };
 
   return (
@@ -60,7 +78,7 @@ const ItemInput = (props) => {
           <div className="input">
             <input
               id="price"
-              type="text"
+              type="number"
               placeholder="Price"
               value={item.itemPrice}
               onChange={itemPriceHandler}
@@ -71,8 +89,11 @@ const ItemInput = (props) => {
           </div>
         </div>
         <div className="item-actions">
-          <img src={save} alt="save" onClick={props.onSave.bind(null, item)} />
-          <img src={deleteItem} alt="del" onClick={props.onDelete} />
+          <img
+            src={deleteItem}
+            alt="del"
+            onClick={props.onDelete.bind(null, item.itemID)}
+          />
         </div>
       </div>
     </Container>

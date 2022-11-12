@@ -30,12 +30,14 @@ export const sampleData = [
     },
     items: [
       {
+        itemID: 1,
         itemName: "Bedsheets",
         quantity: "3",
         itemPrice: "30",
         totalItemPrice: "90",
       },
       {
+        itemID: 2,
         itemName: "Pillows",
         quantity: "5",
         itemPrice: "10",

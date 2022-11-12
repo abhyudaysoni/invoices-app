@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "./styles";
@@ -11,12 +11,15 @@ import InvoiceDateInput from "./InvoiceDateInput/InvoiceDateInput";
 import {
   setEditInvoice,
   editInvoiceInitialState,
-} from "../../store/editInvoiceSlice";
+} from "../../store/edit-invoice-slice";
 import {
   setNewInvoice,
   newInvoiceInitialState,
-} from "../../store/newInvoiceSlice";
+} from "../../store/new-invoice-slice";
 import { addData, updateData } from "../../api/api";
+import Items from "./Items/Items";
+import { addItem } from "../../store/items-slice";
+import save from "../../assets/icons/save.svg";
 
 const NewInvoice = (props) => {
   const params = useParams();
@@ -27,6 +30,23 @@ const NewInvoice = (props) => {
   const isLight = useSelector((state) => state.displayMode.isLight);
   const invoice = params.userID ? editInvoice : newInvoice;
   const setInvoice = params.userID ? setEditInvoice : setNewInvoice;
+  const items = useSelector((state) => state.items);
+  console.log(invoice);
+  useEffect(() => {
+    if (params.userID) {
+      invoice.items.map((item, index) => {
+        dispatch(addItem({ ...item, itemID: index + 1 }));
+        return item;
+      });
+    }
+  }, [invoice.items, dispatch, params.userID]);
+  const saveAllItems = () => {
+    let sum = 0;
+    items.map((item) => {
+      sum += Number(item.totalItemPrice);
+    });
+    dispatch(setInvoice({ ...invoice, items: items, amount: sum.toFixed(2) }));
+  };
   const saveFormHandler = () => {
     params.userID ? updateData(invoice, invoice.fid) : addData({ ...invoice });
     props.onCloseOverlay();
@@ -61,7 +81,16 @@ const NewInvoice = (props) => {
         <h2>Dates</h2>
         <InvoiceDateInput invoice={invoice} setInvoice={setInvoice} />
         <h2 id="item-list-heading">Item List</h2>
+        <Items />
       </form>
+      <div>
+        <img
+          src={save}
+          alt="save-items"
+          id="save-items-btn"
+          onClick={saveAllItems}
+        />
+      </div>
       <div className="form-options">
         <Button id="discard" onClick={discardFormHandler}>
           Discard

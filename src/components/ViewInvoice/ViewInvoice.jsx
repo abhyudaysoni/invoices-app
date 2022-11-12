@@ -8,7 +8,7 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 import NewInvoice from "../NewInvoice/NewInvoice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setEditInvoice } from "../../store/editInvoiceSlice";
+import { setEditInvoice } from "../../store/edit-invoice-slice";
 import { deleteData } from "../../api/api";
 
 const ViewInvoice = (props) => {
@@ -26,7 +26,6 @@ const ViewInvoice = (props) => {
   const deleteInvoiceHandler = () => {
     deleteData(user.fid);
     navigate("/");
-    console.log("hello");
   };
 
   const overlayHandler = () => {

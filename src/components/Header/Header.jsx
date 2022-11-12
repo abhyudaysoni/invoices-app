@@ -6,7 +6,7 @@ import light from "../../assets/icons/icon-sun.svg";
 import pfp from "../../assets/images/image-avatar.jpg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeDisplayMode } from "../../store/displayMode";
+import { changeDisplayMode } from "../../store/display-mode";
 
 export default function Header() {
   const dispatch = useDispatch();

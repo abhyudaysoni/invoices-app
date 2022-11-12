@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Container } from "./styles";
 import HomepageHeader from "./HomepageHeader/HomepageHeader";
@@ -7,6 +7,7 @@ import Backdrop from "../UI/Backdrop/Backdrop";
 import NewInvoice from "../NewInvoice/NewInvoice";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useGetData } from "../../api/api";
 
 export default function Homepage(props) {
   const invoices = useSelector((state) => state.invoices);

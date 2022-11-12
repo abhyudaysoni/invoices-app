@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import invoicesReducer from "./invoicesSlice";
-import newInvoiceReducer from "./newInvoiceSlice";
-import editInvoiceReducer from "./editInvoiceSlice";
-import displayModeReducer from "./displayMode";
+import invoicesReducer from "./invoices-slice";
+import newInvoiceReducer from "./new-invoice-slice";
+import editInvoiceReducer from "./edit-invoice-slice";
+import displayModeReducer from "./display-mode";
+import itemsReducer from "./items-slice";
 
 export const store = configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export const store = configureStore({
     newInvoice: newInvoiceReducer,
     editInvoice: editInvoiceReducer,
     displayMode: displayModeReducer,
+    items: itemsReducer,
   },
 });

@@ -16,6 +16,9 @@ export const Container = styled.section`
   z-index: 10;
   background: ${(props) => (props.isLight ? "#edebf5" : "#1e2139")};
   color: ${(props) => (props.isLight ? "black" : "white")};
+  #save-items-btn {
+    height: 50px;
+  }
   & .new-invoice-header {
     display: flex;
     align-items: center;
